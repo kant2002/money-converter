@@ -1,8 +1,9 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
-<dom-module id="header">
-  <style>
-    :host {
+<dom-module name="app-header" attributes="caption" horizontal layout>
+  <template>
+        <style>
+            :host {
                 height: 30px;
                 padding: 10px;
                 background-color: #082055;
@@ -20,23 +21,29 @@
                 color: white;
                 line-height: 30px;
             }
-  </style>
-  <template>
-    <!-- local DOM for your element -->
-
-    <div></div> <!-- data bindings in local DOM -->
+        </style>
+        <div class="app-title" flex>{{ caption }}</div>
+        <div class="commands">
+            <content></content>
+        </div>
+        <div style="clear: both"></div>
   </template>
+  <script>
+    (function () {
+        Polymer({
+		is: "app-header",
 
-<script>
-  // element registration
-  Polymer({
-    is: 'header',
+		// add properties and methods on the element's prototype
 
-    // add properties and methods on the element's prototype
-
-    
-  });
-</script>
-
+		properties: {
+		  // declare properties for the element's public API
+		  caption: {
+			type: String,
+			value: "Конвертер"
+		  }
+		}
+	  });
+    })();
+  </script>
 </dom-module>
 
